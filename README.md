@@ -1,2 +1,2 @@
 # micasa
-manage properties for rent and short stays
+manage homes for rent and short stays
