@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Homes from './Homes';
 import './App.css';
 
+const API_URL = process.env.REACT_APP_API_URL;
 
 class App extends Component {
 
@@ -14,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/homes')
+    fetch(`${API_URL}/homes`)
     .then(response => response.json())
     .then(homes => this.setState({ homes }))
   }
