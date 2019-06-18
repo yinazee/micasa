@@ -1,8 +1,8 @@
 import React from 'react';
-// import './Homes.css';
+import './Homes.css';
 
 const Homes = (props) => (
-  <div>
+  <div className="HomesContainer">
   <h1> Mi Casa </h1>
   <h2>A List of Homes</h2>
     {props.homes.map(home =>
