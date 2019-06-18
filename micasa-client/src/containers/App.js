@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Homes from './Homes';
 import './App.css';
 
 const homes = [
@@ -23,10 +24,6 @@ const homes = [
   }
 ]
 
-const Homes = () =>
-  <div>
-    <h3>Homes Component</h3>
-</div>
 
 class App extends Component {
   //
@@ -48,7 +45,6 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-         Mi Casa
       <Homes homes={homes}/>
       </div>
     )
