@@ -4,6 +4,8 @@ import './App.css';
 
 // const API_URL = process.env.REACT_APP_API_URL;
 
+
+
 class App extends Component {
 
   constructor(props) {
@@ -15,7 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/homes')
+    fetch('http://localhost:3000/api/homes')
     .then(response => response.json())
     .then(homes => this.setState({ homes }))
   }
@@ -23,7 +25,7 @@ class App extends Component {
   render() {
     return(
       <div className="App">
-      <Homes homes={this.state.homes}/>
+        <Homes homes={this.state.homes}/>
       </div>
     )
   }
