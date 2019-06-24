@@ -1,11 +1,11 @@
 import {
   createStore,
   applyMiddleware,
-  // combineReducers
+  combineReducers
 } from 'redux';
 import thunk from 'redux-thunk'
 
-const homesReducer = (state = [], action) => {
+const homes = (state = [], action) => {
   switch(action.type) {
     case 'GET_HOME_SUCCESS':
     return action.homes;
@@ -15,9 +15,9 @@ const homesReducer = (state = [], action) => {
   }
 }
 
-// const reducers = combineReducers({
-//   homes: homesReducer
-// })
+const reducers = combineReducers({
+  homes: homes
+})
 
 const middleware = [thunk];
 //
@@ -27,10 +27,10 @@ const middleware = [thunk];
 //   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 // )
 
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ || homesReducer;
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION__ || reducers;
 
 const store =  createStore(
-  homesReducer,
+  reducers,
   composeEnhancer(applyMiddleware(...middleware)),
 )
 

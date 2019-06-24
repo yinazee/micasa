@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import HomeCard from '../components/HomeCard';
 import HomeForm from './HomeForm';
 import './Homes.css';
 
 class Homes extends Component {
+
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'GET_HOME_SUCCESS',
+      homes: [ {name: "test", price: 56, image: "test", location: "test"}]
+  })
+}
 
   render() {
     return (
@@ -17,5 +25,10 @@ class Homes extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return ({
+    homes: state.homes
+  })
+}
 
-export default Homes;
+export default connect(mapStateToProps)(Homes);
