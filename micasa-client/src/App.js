@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Homes from './Homes';
+import Homes from './container/HomesContainer';
 import './App.css';
 
 // const API_URL = process.env.REACT_APP_API_URL;

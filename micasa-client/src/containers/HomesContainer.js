@@ -25,10 +25,10 @@ class Homes extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return ({
+const mapStateToProps = state => {
+  return {
     homes: state.homes
-  })
+  }
 }
 
 export default connect(mapStateToProps)(Homes);
