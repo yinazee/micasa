@@ -1,34 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import HomeCard from '../components/HomeCard';
-import HomeForm from './HomeForm';
-import './Homes.css';
+import HomeCard from '../components/homes/HomeCard';
+import HomeInput from '../components/homes/HomeInput.js';
+import '../components/homes/Homes.css';
 
-class Homes extends Component {
-
-  componentDidMount() {
-    this.props.dispatch({
-      type: 'GET_HOME_SUCCESS',
-      homes: [ {name: "test", price: 56, image: "test", location: "test"}]
-  })
-}
+class HomesContainer extends Component {
 
   render() {
     return (
     <div className="HomesContainer">
       <h1> Mi Casa </h1>
       <h2>A List of Homes</h2>
-      {this.props.homes.map(home => <HomeCard key={home.id} home={home}/>)}
-    <HomeForm />
+      <HomeInput addHome={this.props.addHome} />
+      <HomeCard
+        homes={this.props.homes}
+        deleteHome={this.props.deleteHome} />
+      // {this.props.homes.map(home => <HomeCard key={home.id} home={home}/>)}
     </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    homes: state.homes
-  }
-}
+const mapStateToProps = state => ({ homes: state.homes })
 
-export default connect(mapStateToProps)(Homes);
+const mapDispatchToProps = dispatch => ({
+  addhHOME: text => dispatch({ type: 'ADD_HOME', text }),
+  deleteHOME: id => dispatch({ type: 'DELETE_HOME', id })
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomesContainer);

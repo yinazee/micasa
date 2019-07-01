@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import { addHome } from '../actions';
-import uuid from 'uuid';
-import { connect } from 'react-redux';
+// import { addHome } from '.../actions';
+import cuid from 'cuid';
+// import { connect } from 'react-redux';
 
-export class HomeInput extends Component {
+class HomeInput extends Component {
+  constructor(props) {
+    super(props)
 
-  state = {
-    name: '',
-    price: '',
-    image: '',
-    location: ''
+    this.state = {
+      name: '',
+      price: '',
+      image: '',
+      location: ''
   }
+}
 
   handleOnChange = event => {
     this.setState({
@@ -21,7 +24,7 @@ export class HomeInput extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault();
-    const home = {...this.state, id: uuid() };
+    const home = {...this.state, id: cuid() };
     this.props.addHome(home);
     this.setState({
       name: '',
@@ -33,7 +36,9 @@ export class HomeInput extends Component {
 
   render() {
     return(
+      <div className="HomeCard">
       <h2>Add a New Home</h2>
+
       <form onSubmit={(event) => this.handleOnSubmit(event)}>
         <p>
           <input
@@ -69,8 +74,9 @@ export class HomeInput extends Component {
         </p>
         <input type="submit" />
       </form>
+      </div>
     );
   }
 };
 
-export default connect(null, { addHome })(HomeInput);
+export default HomeInput;
