@@ -21,6 +21,10 @@ class HomeCard extends Component {
       <ReviewsContainer home={home}/>
       </div>
     )
+
+    return (
+      <div></div>
+    )
   }
 }
 

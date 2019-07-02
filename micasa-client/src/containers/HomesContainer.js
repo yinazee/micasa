@@ -13,9 +13,8 @@ class HomesContainer extends Component {
       <h2>A List of Homes</h2>
       <HomeInput addHome={this.props.addHome} />
       <HomeCard
-        homes={this.props.homes}
+        homes={this.props.homes.map(home => <HomeCard key={home.id} home={home}/>)}
         deleteHome={this.props.deleteHome} />
-      // {this.props.homes.map(home => <HomeCard key={home.id} home={home}/>)}
     </div>
     )
   }
@@ -24,7 +23,7 @@ class HomesContainer extends Component {
 const mapStateToProps = state => ({ homes: state.homes })
 
 const mapDispatchToProps = dispatch => ({
-  addhHOME: text => dispatch({ type: 'ADD_HOME', text }),
+  addHOME: text => dispatch({ type: 'ADD_HOME', text }),
   deleteHOME: id => dispatch({ type: 'DELETE_HOME', id })
 })
 

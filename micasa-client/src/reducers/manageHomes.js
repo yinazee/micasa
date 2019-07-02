@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   reviews: reviewsReducer
 })
 
-function homesReducer(state = [], action) {
+function homesReducer(state = {name: 'name', price: '$0.00', location: '', image: ''}, action) {
   let idx;
   switch(action.type) {
     case 'ADD_HOME':
