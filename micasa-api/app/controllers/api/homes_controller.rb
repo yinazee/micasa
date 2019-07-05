@@ -1,9 +1,18 @@
 class Api::HomesController < ApplicationController
 
+
   before_action :set_home, only: [:show, :edit, :destroy]
 
   def index
     render json: Home.all
+    # @homes = Home.all
+    # @reviews = Review.all
+    # home_json = HomeSerializer.new(@home)serialized_json
+    # render json: home_json
+    # respond_to do |format|
+    #   format.json {render json: @homes}
+    # end
+
   end
 
   def create
